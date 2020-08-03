@@ -1,0 +1,32 @@
+{
+  "name": "front-end-style-guide",
+  "version": "1.0.0",
+  "description": "* 风格指南   * [Javascript](/style-guide/Javascript.md)   * [CSS](/style-guide/CSS.md)   * [HTML](/style-guide/HTML.md)   * [组件规范](/style-guide/组件规范.md)   * [Git](/style-guide/Git.md)   * [项目规范](/style-guide/项目规范.md)   * [接入Eslint](/style-guide/eslint/如何在项目中接入Eslint.md) * 系统项目   * [概览](/projects/overview/概览.md)   * [心率系统](/projects/smart-monkey/发版公告.md)   * [教练管理系统](/projects/monkey-coach/发版公告.md)   * [学院培训系统](/projects/monkey-training/发版公告.md)   * [预约系统](/projects/monkey-reservation/开发指引.md) * 业务框架   * [monkey-frame2.0](/router/模板语法.md)   * [flutter-frame](/projects/monkey-app/flutter-frame.md) * [公共组件](/common/_sidebar.md) * 数据埋点   * [方案介绍](/traces/方案介绍.md)   * [预约系统](/traces/monkey-reservation/README.md)   * [埋点开发文档](/traces/develop-doc/README.md)   * [2019年度报告埋点文档](/traces/report-2019/README.md) * [工具](/tools/README.md) * [文章](/articles/README.md) * [规范制度](/standard-system/README.md)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.internal.supermonkey.com.cn:10022/supermonkey-web/front-end-style-guide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "husky": "^3.0.0",
+    "lint-staged": "^10.2.2",
+    "zhlint": "^0.2.2"
+  },
+  "lint-staged": {
+    "**/*.{md}": [
+      "zhlint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
