@@ -94,7 +94,7 @@
 
 - **类型**: Object
 
-  [页面路由配置表](/router/路由管理器.md#路由配置表（routeMap）)
+  [页面路由配置表](/路由管理器.mdrouteMap）)
 
 ## 实例方法/导航
 
@@ -121,7 +121,7 @@
 - **示例**
 
   ```js
-  import router from 'router'
+  import router from 'router/router'
   router.navigateTo({ page: 'BadgeDetail', data: { badgeId, sk } })
   ```
 

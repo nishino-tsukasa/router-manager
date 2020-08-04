@@ -15,7 +15,7 @@ const config = { homePage, tabPageMap, routeMap }
 const router = createSmRouter(config)
 ```
 
-[查看 homePage、tabPageMap 定义](/router/router.md#homePage)
+[查看 homePage、tabPageMap 定义](/router.md#homePage)
 
 ## 路由配置表（routeMap）
 
@@ -615,4 +615,4 @@ path 或者 page，有 / 的被认为是 path
 
 ## 路由管理器对象
 
-路由管理器对象[参考](/router/router.md)
+路由管理器对象[参考](/router.md)

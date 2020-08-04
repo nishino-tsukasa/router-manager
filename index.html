@@ -8,11 +8,7 @@
     <meta name="description" content="Description">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://js.supermonkey.com.cn/docsify/vue.css">
-    <link rel="stylesheet" href="https://js.supermonkey.com.cn/docsify/mermaid.min.css">
-    <script src="https://js.supermonkey.com.cn/docsify/mermaid.min.js"></script>
-    <script src="https://js.supermonkey.com.cn/docsify/raphael-min.js"></script>
-    <script src="https://js.supermonkey.com.cn/docsify/flowchart.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
     <style>
         .cover-main [alt=logo] {
             width: 20vw;
@@ -29,51 +25,21 @@
 <body>
 <div id="app">加载中...</div>
 <script>
-let flowId = 0
-mermaid.initialize({ startOnLoad: false });
 
 window.$docsify = {
-  basePath: '../',
-  name: '路由管理',
-  repo: '',
-  homepage: '/router/路由管理器.md',
-  search: {
-    paths: 'auto',
-    depth: 6
-  },
+  name: '~超级猩猩 - 前端文档~',
   coverpage: false,
   loadNavbar: false,
-  loadSidebar: true,
+  loadSidebar: false,
   alias: {
     // '/.*/_sidebar.md': '/_sidebar.md'
   },
   subMaxLevel: 5,
   auto2top: true,
   // themeColor: '#fcc800',
-  noEmoji: true,
-  markdown: {
-    renderer: {
-      code: function(code, lang) {
-        if (lang === "mermaid") {
-          return (
-            '<div class="mermaid">' + mermaid.render(lang, code) + "</div>"
-          );
-        }
-        if (lang === 'flow') {
-          var diagram = flowchart.parse(code);
-          flowId++
-          setTimeout(((flowId) => () => diagram.drawSVG(`flow${flowId}`))(flowId), 10)
-          return (
-            `<div id="flow${flowId}"></div>`
-          )
-        }
-        return this.origin.code.apply(this, arguments);
-      }
-    }
-  }
+  noEmoji: true
 }
 </script>
-<script src="https://js.supermonkey.com.cn/docsify/docsify.min.js"></script>
-<script src="https://js.supermonkey.com.cn/docsify/search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
 </html>
