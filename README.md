@@ -1,4 +1,6 @@
-* [路由管理器](router/README.md)
+* [Usage](usage.md)
+* [配置](config.md)
+* [导航守卫](usage.md)
 * API
-    * [router](router/router.md)
-    * [实例](router/instance.md)
+    * [router](router.md)
+    * [实例](instance.md)
