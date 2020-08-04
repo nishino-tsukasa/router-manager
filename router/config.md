@@ -2,6 +2,8 @@
 
 routeMap 是一个对象（key / value），所有页面的路由都在此配置。其中 key 为页面名（page），value 为路由配置信息（config），例如：
 
+> `页面名必须在页面里定义：wepy.page({ name: '页面名' })`
+
 ```js
 homePage = 'SplashScreen'
 tabPages = ['CourseList']

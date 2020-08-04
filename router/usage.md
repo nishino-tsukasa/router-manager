@@ -67,6 +67,40 @@ wepy.page({
 })
 ```
 
+#### 预加载数据
+
+- 提升页面加载速度，减少用户等待时间，这时可以使用守卫 `beforeRouteEnter`处理
+
+  ```js
+  <script>
+    wepy.page({
+      _pData: null,
+      beforeRouteEnter(to, from, next) {
+        const pData = api.getXXX()
+        next(vm => {
+          vm._pData = pData
+        })
+      },
+      onLoad() {
+        this._fetchData()
+      },
+      async _fetchData() {
+        try {
+          if (this._pData) {
+            this._renderingData = await this._pData
+          } else {
+            this._renderingData = await api.getXXX()
+          }
+        } catch(e) {
+          // 错误处理
+        } finally {
+          this._pData = null
+        }
+      }
+    })
+  </script>
+  ```
+
 #### 复杂情况下的页面数据交互
 
 - 将获取数据抽象成一个服务
@@ -148,40 +182,6 @@ wepy.page({
       }
     }
   }
-  ```
-
-#### 预加载数据
-
-- 提升页面加载速度，减少用户等待时间，这时可以使用守卫 `beforeRouteEnter`处理
-
-  ```js
-  <script>
-    wepy.page({
-      _pData: null,
-      beforeRouteEnter(to, from, next) {
-        const pData = api.getXXX()
-        next(vm => {
-          vm._pData = pData
-        })
-      },
-      onLoad() {
-        this._fetchData()
-      },
-      async _fetchData() {
-        try {
-          if (this._pData) {
-            this._renderingData = await this._pData
-          } else {
-            this._renderingData = await api.getXXX()
-          }
-        } catch(e) {
-          // 错误处理
-        } finally {
-          this._pData = null
-        }
-      }
-    })
-  </script>
   ```
 
 #### 页面内不同标签页之间跳转
