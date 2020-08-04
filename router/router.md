@@ -4,7 +4,7 @@
 
 `import router from 'router'`
 
-## 实例属性
+## 属性
 
 ### route
 
@@ -96,7 +96,7 @@
 
   [页面路由配置表](/路由管理器.mdrouteMap）)
 
-## 实例方法/导航
+## 方法/导航
 
 页面导航在 wx api 的基础上封装
 
@@ -227,7 +227,7 @@
 >
 > data 会转换成查询参数（'key=value&key2=value2'），如果 encode 为 true，则会使用 encodeURIComponent 进行编码，由于转换后是字符串，因此 data 里如果有非 string 和 number 将会被过滤掉，可以从 route.data 里拿到完整的 data
 
-## 实例方法/全局守卫
+## 方法/全局守卫
 
 ### beforeEach
 
@@ -241,7 +241,7 @@
 
 [参考](#afterEach)
 
-## 实例方法/工具
+## 方法/工具
 
 ### getRealPageInfo
 
