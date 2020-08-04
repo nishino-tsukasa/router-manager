@@ -1,6 +1,6 @@
-* [Usage](usage.md)
-* [配置](config.md)
-* [导航守卫](usage.md)
+* [Usage](/router/usage.md)
+* [配置](/router/config.md)
+* [导航守卫](/router/usage.md)
 * API
-    * [router](router.md)
-    * [实例](instance.md)
+    * [router](/router/router.md)
+    * [实例](/router/instance.md)
