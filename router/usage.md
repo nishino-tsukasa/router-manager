@@ -20,7 +20,7 @@ const routeMap = {
   CourseDetail: '/pages/CourseDetail','
   CourseOnlineDetail: { page: 'CourseDetail', data: { courseType: 'online' } },
 }
-const config = { homePage, tabPageMap, routeMap }
+const config = { homePage, tabPages, routeMap }
 
 const router = createSmRouter(config)
 wepy.use(routerPlugin, router);
@@ -189,7 +189,7 @@ wepy.page({
 - 某个页面由不同业务组成，分成不同标签页，在定义路由时可根据标签页定义不同的逻辑页面（映射到同一个物理页面），页面内跳转时，可以使用`beforeRouteUpdate`守卫处理。（可以参考启动页、课表页）
 
   ```js
-  routerConfig = {
+  routeMap = {
     xxxPage: '/xxxPath',
     APage: { page: 'xxxPage', data: { type: 'A' } },
     BPage: { page: 'xxxPage', data: { type: 'B' } }
@@ -210,6 +210,11 @@ wepy.page({
     })
   </script>
   ```
+
+## 注意事项
+
+- 路由管理器基于微信提供的 api，但如果用户某个路由跳转行为不是基于 api，那么守卫将无法处理，开发时需要注意。例如：手势滑动返回 或者 点击 tab 或者从外部跳转进入小程序
+- 对于首次分包加载， `beforeRouteEnter`守卫无法终止路由跳转，因为导航守卫是在运行时处理的，首次分包加载前无跳转页面代码，因此拿不到此守卫
 
 ## 文档
 
