@@ -74,11 +74,12 @@ wepy.page({
   ```js
   <script>
     wepy.page({
+      name: 'xxx',
       _pData: null,
       beforeRouteEnter(to, from, next) {
         const pData = api.getXXX()
         next(vm => {
-          vm._pData = pData
+          vm.$options._pData = pData
         })
       },
       onLoad() {
@@ -86,15 +87,15 @@ wepy.page({
       },
       async _fetchData() {
         try {
-          if (this._pData) {
-            this._renderingData = await this._pData
+          if (this.$options._pData) {
+            this._renderingData = await this.$options._pData
           } else {
             this._renderingData = await api.getXXX()
           }
         } catch(e) {
           // 错误处理
         } finally {
-          this._pData = null
+          this.$options._pData = null
         }
       }
     })
@@ -113,20 +114,21 @@ wepy.page({
     methods: {
       async goSelectTicket() {
         this.ticketId = await this._getTicketId() || ''
+      },
+  
+      _getTicketId() {
+        return new Promise((resolve, reject) => {
+          this.$router.navigateTo({
+            page: 'UseTicket',
+            data: {
+              ...params,
+              resolve,
+              reject
+            }
+          })
+        })
       }
     },
-    _getTicketId() {
-      return new Promise((resolve, reject) => {
-        this.$router.navigateTo({
-          page: 'UseTicket',
-          data: {
-            ...params,
-            resolve,
-            reject
-          }
-        })
-      })
-    }
   })
   
   // 选择代金券页面
@@ -152,6 +154,7 @@ wepy.page({
   ```js
   <script>
     wepy.page({
+      name: 'xxx',
       beforeRouteLeave(to, from, next) {
         // 如果不加 to.page !== 'xxxPage'，会进入死循环
       	if (this.condition && to.page !== 'xxxPage') {
@@ -197,6 +200,7 @@ wepy.page({
   
   <script>
     wepy.page({
+      name: 'xxxPage',
       data: {
         type: 'A'
       },
