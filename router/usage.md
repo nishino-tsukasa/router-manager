@@ -85,19 +85,21 @@ wepy.page({
       onLoad() {
         this._fetchData()
       },
-      async _fetchData() {
-        try {
-          if (this.$options._pData) {
-            this._renderingData = await this.$options._pData
-          } else {
-            this._renderingData = await api.getXXX()
+      methods: { 
+        async _fetchData() {
+          try {
+            if (this.$options._pData) {
+              this._renderingData = await this.$options._pData
+            } else {
+              this._renderingData = await api.getXXX()
+            }
+          } catch(e) {
+            // 错误处理
+          } finally {
+            this.$options._pData = null
           }
-        } catch(e) {
-          // 错误处理
-        } finally {
-          this.$options._pData = null
         }
-      }
+       }
     })
   </script>
   ```

@@ -94,7 +94,7 @@
 
 - **类型**: Object
 
-  [页面路由配置表](/路由管理器.mdrouteMap）)
+  [页面路由配置表](/router/config.md)
 
 ## 方法/导航
 
@@ -231,15 +231,15 @@
 
 ### beforeEach
 
-[参考](#beforeEach)
+[参考](/router/guard.md#beforeEach)
 
 ### beforeResolve
 
-[参考](#beforeResolve)
+[参考](/router/guard.md#beforeResolve)
 
 ### afterEach
 
-[参考](#afterEach)
+[参考](/router/guard.md#afterEach)
 
 ## 方法/工具
 

@@ -6,7 +6,7 @@
 
   router 对象实例
 
-- **参考**：跟全局 router 对象一致，[参考](/router.md)
+- **参考**：跟全局 router 对象一致，[参考](/router/router.md)
 
 ### this.$route
 
@@ -14,4 +14,4 @@
 
   route 对象实例
 
-- **参考**：跟全局 router.route 对象一致，[参考](/router.md#route)
+- **参考**：跟全局 router.route 对象一致，[参考](/router/router.md#route)
